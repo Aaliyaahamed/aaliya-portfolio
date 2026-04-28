@@ -1,233 +1,583 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aaliya Ahamed</title>
-  <link rel="stylesheet" href="style.css" />
-  <a href="C:\Users\Anam\Desktop\aaliyaweb\readmore.html" class="read-more">Read More →</a>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aaliya Ahamed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+  :root {
+    --white: #ffffff;
+    --bg: #f9f8f6;
+    --ink: #1c1a17;
+    --ink-mid: #4a4540;
+    --ink-light: #837a70;
+    --ink-xlight: #b0a89e;
+    --accent: #1e5fa8;
+    --accent-hover: #174d8a;
+    --border: #e2ddd8;
+    --font-serif: 'Lora', Georgia, serif;
+    --font-sans: 'Source Sans 3', system-ui, sans-serif;
+    --max-w: 780px;
+    --side-pad: 2rem;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.78;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
 
-  
+  /* NAV */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 50;
+  }
+  .nav-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 0 var(--side-pad); height: 52px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-name {
+    font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400;
+    color: var(--ink); text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+  .nav-links a {
+    font-size: 0.88rem; font-weight: 400; color: var(--ink-mid);
+    text-decoration: none; transition: color 0.15s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  main { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--side-pad); }
+
+  /* HOME HERO */
+  #page-home {
+    padding: 3.5rem 0 0;
+  }
+  .home-top {
+    display: grid;
+    grid-template-columns: 1fr 160px;
+    gap: 2.5rem;
+    align-items: start;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .intro-greeting {
+    font-family: var(--font-serif); font-size: 1.85rem; font-weight: 400;
+    line-height: 1.25; color: var(--ink); margin-bottom: 1.1rem;
+  }
+  .intro-body { font-size: 1rem; color: var(--ink-mid); line-height: 1.82; font-weight: 300; }
+  .intro-body p + p { margin-top: 0.9em; }
+  .intro-body a { color: var(--accent); text-decoration: none; }
+  .intro-body a:hover { text-decoration: underline; }
+  .intro-photo {
+    width: 160px; height: 160px; border-radius: 50%;
+    object-fit: cover; object-position: top center;
+    display: block; border: 3px solid var(--border); flex-shrink: 0;
+  }
+  .intro-links {
+    margin-top: 1.25rem; display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: center;
+  }
+  .intro-links a {
+    font-size: 0.88rem; color: var(--accent); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 5px; transition: color 0.15s;
+  }
+  .intro-links a:hover { color: var(--accent-hover); text-decoration: underline; }
+  .intro-links a i { font-size: 13px; }
+
+  /* NEWS SECTION on home */
+  .home-news { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+  .home-news:last-child { border-bottom: none; }
+
+  /* SECTIONS */
+  section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  h2 {
+    font-family: var(--font-serif); font-size: 1.3rem; font-weight: 500;
+    color: var(--ink); margin-bottom: 1.25rem; letter-spacing: -0.01em;
+  }
+  h3 {
+    font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500;
+    color: var(--ink); margin-bottom: 0.6rem;
+  }
+  p { color: var(--ink-mid); font-weight: 300; }
+  p + p { margin-top: 0.85em; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul { padding-left: 1.4rem; color: var(--ink-mid); font-weight: 300; }
+  ul li { margin-bottom: 0.3rem; }
+  strong { color: var(--ink); font-weight: 600; }
+
+  /* NEWS LIST */
+  .news-list { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+  .news-item { display: grid; grid-template-columns: 90px 1fr; gap: 1rem; font-size: 0.93rem; }
+  .news-date { color: var(--ink-xlight); font-size: 0.83rem; font-weight: 400; padding-top: 2px; white-space: nowrap; }
+  .news-text { color: var(--ink-mid); font-weight: 300; }
+
+  /* TS;WM / TL;DR TOGGLE */
+  .version-toggle {
+    display: flex; gap: 0; margin-bottom: 1.75rem;
+    border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
+    width: fit-content;
+  }
+  .vtab {
+    padding: 7px 18px; font-size: 0.82rem; font-weight: 400; font-family: var(--font-sans);
+    cursor: pointer; background: var(--white); color: var(--ink-mid);
+    border: none; border-right: 1px solid var(--border); letter-spacing: 0.03em;
+    transition: background 0.15s, color 0.15s;
+  }
+  .vtab:last-child { border-right: none; }
+  .vtab.active { background: var(--accent); color: #fff; }
+  .vtab:hover:not(.active) { background: var(--bg); }
+
+  .vblock { display: none; }
+  .vblock.active { display: block; }
+
+  .tswm-label {
+    display: inline-block; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--ink-light); margin-bottom: 1rem;
+  }
+
+  /* RESEARCH items */
+  .research-item {
+    display: grid; grid-template-columns: 100px 1fr; gap: 1.5rem;
+    align-items: start; padding: 0.5rem 0 1.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .research-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .research-thumb {
+    width: 100px; height: 75px; object-fit: cover;
+    border-radius: 4px; border: 1px solid var(--border); display: block;
+  }
+  .research-title { font-weight: 600; font-size: 0.97rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .research-desc { font-size: 0.9rem; color: var(--ink-mid); font-weight: 300; line-height: 1.65; }
+  .research-tag {
+    display: inline-block; font-size: 0.74rem; font-weight: 400;
+    color: var(--ink-light); background: var(--bg); border: 1px solid var(--border);
+    border-radius: 3px; padding: 1px 8px; margin-top: 0.5rem;
+  }
+
+  /* PUBLICATIONS */
+  .pub-list { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 1.4rem; }
+  .pub-item { font-size: 0.95rem; line-height: 1.7; }
+  .pub-title { font-style: italic; color: var(--ink); font-weight: 400; display: block; margin-bottom: 0.2rem; }
+  .pub-authors { color: var(--ink-mid); font-weight: 300; display: block; font-size: 0.9rem; }
+  .pub-venue { color: var(--ink-light); font-size: 0.88rem; display: block; margin-top: 0.15rem; }
+  .pub-badge {
+    display: inline-block; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 1px 7px; border-radius: 3px; margin-left: 8px;
+    vertical-align: middle; position: relative; top: -1px;
+  }
+  .badge-pending { background: #fff3e0; color: #b45309; }
+  .badge-review  { background: #e8f5e9; color: #2e7d32; }
+  .badge-prep    { background: #e3f0fb; color: #1565c0; }
+
+  /* AWARDS */
+  .award-list { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 1rem; }
+  .award-item { display: grid; grid-template-columns: 90px 1fr; gap: 1rem; font-size: 0.93rem; }
+  .award-year { color: var(--ink-xlight); font-size: 0.83rem; font-weight: 400; padding-top: 2px; white-space: nowrap; }
+  .award-title { font-weight: 600; color: var(--ink); display: block; font-size: 0.93rem; margin-bottom: 0.1rem; }
+  .award-org { color: var(--ink-mid); font-size: 0.88rem; font-weight: 300; }
+
+  /* CONTACT */
+  .contact-row {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.93rem; color: var(--ink-mid); margin-bottom: 0.5rem;
+  }
+  .contact-row i { color: var(--ink-xlight); font-size: 14px; width: 18px; text-align: center; }
+
+  /* FUN STATS */
+  .fun-box {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 6px; padding: 1.25rem 1.5rem; margin-top: 1.5rem;
+  }
+  .fun-box-label {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-light); margin-bottom: 0.75rem;
+    display: block;
+  }
+  .fun-box ul { padding-left: 1.2rem; }
+  .fun-box li { font-size: 0.9rem; color: var(--ink-mid); margin-bottom: 0.3rem; }
+
+  /* MISC PAGE items */
+  .misc-section { padding: 2rem 0; border-bottom: 1px solid var(--border); }
+  .misc-section:last-child { border-bottom: none; }
+  .misc-section h3 { margin-bottom: 0.9rem; }
+
+  .book-list { list-style: none; padding-left: 0; }
+  .book-item {
+    display: flex; gap: 0.75rem; align-items: baseline;
+    padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.93rem;
+  }
+  .book-item:last-child { border-bottom: none; }
+  .book-title { font-style: italic; color: var(--ink); font-weight: 400; flex: 1; }
+  .book-author { color: var(--ink-light); font-size: 0.85rem; white-space: nowrap; }
+
+  .music-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem; margin-top: 0.5rem;
+  }
+  .music-card {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+    padding: 1rem; font-size: 0.88rem;
+  }
+  .music-card-title { font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+  .music-card-sub { color: var(--ink-light); font-size: 0.82rem; }
+
+  /* PHOTOGRAPHY page */
+  .photo-note { font-size: 0.93rem; color: var(--ink-mid); margin-bottom: 1.5rem; }
+  .photo-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  }
+  .photo-grid img {
+    width: 100%; aspect-ratio: 1; object-fit: cover;
+    border-radius: 4px; border: 1px solid var(--border);
+    display: block;
+  }
+  .photo-placeholder {
+    width: 100%; aspect-ratio: 1;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 4px; display: flex; align-items: center; justify-content: center;
+    color: var(--ink-xlight); font-size: 0.8rem; text-align: center; padding: 0.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border); padding: 1.5rem var(--side-pad);
+    max-width: var(--max-w); margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 0.75rem;
+  }
+  .footer-copy { font-size: 0.82rem; color: var(--ink-xlight); font-weight: 300; }
+  .footer-social { display: flex; gap: 1rem; }
+  .footer-social a { color: var(--ink-xlight); font-size: 14px; text-decoration: none; transition: color 0.15s; }
+  .footer-social a:hover { color: var(--accent); }
+
+  /* RESPONSIVE */
+  @media (max-width: 580px) {
+    .home-top { grid-template-columns: 1fr; }
+    .intro-photo { width: 110px; height: 110px; }
+    .research-item { grid-template-columns: 1fr; }
+    .research-thumb { width: 100%; height: 160px; }
+    .news-item, .award-item { grid-template-columns: 1fr; gap: 0.2rem; }
+    .nav-links li:nth-child(n+5) { display: none; }
+    footer { justify-content: center; text-align: center; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#awards">Awards & Honors</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-      
-    <section id="hero">
-        <div class="hero-container">
-          <div class="hero-text">
 
-            <h1><span class="highlighted-text">Aaliya Ahamed</span></h1>
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-name" onclick="showPage('home')">Aaliya Ahamed</a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">About Me</a></li>
+      <li><a href="#" onclick="showPage('research')" id="nav-research">Research</a></li>
+      <li><a href="#" onclick="showPage('misc')" id="nav-misc">Misc</a></li>
+      <li><a href="#" onclick="showPage('photography')" id="nav-photography">Photography</a></li>
+      <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
+<main>
 
-            <h2>PhD Student in Biobehavioral Health<br>at <span class="highlighted-text">Pennsylvania State University</span></h2>
+  <!-- ══ HOME PAGE ══════════════════════════════════════════════ -->
+  <div id="page-home" class="page active">
 
-          </div>
-          <div class="hero-image">
-            <img src="her.jpeg" alt="Aaliya Ahamed">
-          </div>
+    <div class="home-top">
+      <div>
+        <h1 class="intro-greeting">Hi, I'm Aaliya!</h1>
+        <div class="intro-body">
+          <p>I'm a PhD student in the <a href="https://bbh.psu.edu/" target="_blank">Department of Biobehavioral Health</a> at <strong>Pennsylvania State University</strong>, where I'm fortunate to work with <a href="https://shalev.la.psu.edu/" target="_blank">Dr. Idan Shalev</a>.</p>
+          <p>My research focuses on how early-life adversity shapes stress pathways and accelerates biological aging. I study telomere biology, epigenetic clocks, HPA-axis dysregulation, and oxidative stress — trying to understand how childhood experiences get "under the skin" at the cellular level.</p>
+          <p>I have previously conducted research at <strong>Nanyang Technological University</strong> (Singapore), the <strong>University of Alabama at Birmingham</strong>, and <strong>Shiv Nadar University</strong>. You can learn more about these projects <a href="#" onclick="showPage('research')">here</a>.</p>
+          <p>I'm originally from India. In my free time, I enjoy reading, listening to music, taking photographs, and documenting PhD life on <a href="https://www.instagram.com/myphdslab/" target="_blank">Instagram</a> 📸.</p>
         </div>
-      </section>
-      
-      
-  <header>
-    <button id="toggle-mode">Dark Mode</button>
-    <script>
-    const btn = document.getElementById("toggle-mode");
-    btn.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-    
-    });
-    </script>
-  </header>
-
-
-  <section id="about" class="fade-up">
-    <h2>About Me</h2>
-    <p>My research focuses on how early life adversity impacts stress pathways and cellular aging.
-        With training in both wet lab and computational techniques, she investigates telomere biology, gene regulation, and neuroendocrine mechanisms.
-        I have previously conducted research at NTU Singapore, UAB, and Shiv Nadar University.
-        I am passionate about bridging molecular biology with public health to inform science-driven solutions.</p>
-  </section>
-
-  <section id="research" class="fade-up">
-    <h2>Research</h2>
-    <div class="project-grid">
-        <div class="project-card">
-          <img src="1716202075948.jpeg" alt="NTU Project" />
-          <p class="project-desc">Final Year Project at NTU, Singapore</p>
-        </div>
-      
-        <div class="project-card">
-          <img src="alabama.jpeg" alt="UAB Project" />
-          <p class="project-desc">Summer Intern at the UAB, USA</p>
-        </div>
-      
-        <div class="project-card">
-          <img src="du.jpeg" alt="DU Project" />
-          <p class="project-desc">Summer Intern at University of Delhi</p>
-          <a href="readmore.html" class="read-more">Read More →</a>
+        <div class="intro-links">
+          <a href="aaliya.pdf" target="_blank"><i class="fas fa-file-alt"></i> CV</a>
+          <a href="mailto:Aba6631@psu.edu"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://scholar.google.com" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
         </div>
       </div>
-      
-      <!--
-    <ul>
-      <li><strong>Project 1:</strong> [Title or focus of project].</li>
-      <li><strong>Project 2:</strong> [Another project or paper title].</li>
-    </ul> -->
-  </section>
-  <section id="publications">
-    <h2>Publications</h2>
-    <ol>
-      <li>
-        Hazazi, N. A. Alshehri, M. Bakhuraysah, F. A. Alsaeedi, A. Alharthi, <strong>Ahamed A.</strong>, S. A. Abu Dahsh, M. Albayadh, F. Anjum.  
-        <i>Identification of Novel Natural BACE1 Inhibitors for Alzheimer’s Disease: An In Silico Approach.</i>  
-        <strong>Advancements in Life Sciences</strong>, 12(1). [Pending post-review and publication]
-      </li>
-      <br>
-      <li>
-        Ye Q.,<strong>Ahamed A.</strong>, Shalev I., Etzel L. (under review).  
-        <i>Comprehensive evaluation of reproductive profiles and epigenetic aging in post-menopausal women.</i>  
-        <em>[under review]</em>
-      </li>
-      <br>
-      <li>
-        <strong>Ahamed A.</strong>, Shalev, I., House, L., & Ye, Q  
-        <i>Child maltreatment and telomere length: Investigating mediating roles of HPA-axis dysregulation and oxidative stress.</i>  
-        <em>[in preparation]</em>
-      </li>
-    </ol>
-  </section>
-  
-    
-  </section>
-  <section id="awards" class="fade-up">
-    <h2>Awards & Honors </h2>
-    <ol>
-        <ul>
-            <li>
-                <strong>Fund for Excellence in Recruitment (FEGR) top-up award</strong>   
-                Duration of the award: 2024-2025             					               
-                <em>The Pennsylvania State University</em>
-    
-            </li>
-        </ul>
-        <br>
-        <ul>
-            <li>
-                Selected for the <strong>Nanyang Technological University, Singapore India Connect Fall Research Fellowship</strong>
-                Duration of the fellowship: Jan-Jun, 2024
-
-            </li>
-        </ul>
-        <br>
-        <ul>
-            <li>
-                Awarded with the <strong>Deans List Award</strong> for the following semesters:
-                Monsoon, 2020 (First Semester); Spring, 2021 (Second Semester); Monsoon, 2021 (Third Semester)
-            </li>
-        </ul>
-        <br>
-        <ul>
-            <li>
-                <strong>Secured 3rd position at Hack4Rare Hackathon</strong>
-                <i>MIT Hacking Medicine and Children’s Tumor Foundation (Jul – Aug 2021) </i>i>
-                Topic: Development of an interactive application to track and store developmental milestones in RASopathies children 
-            </li>
-        </ul>
-    </ol>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="lets-chat" class="fade-up">
-    <h2>LET'S CHAT</h2>
-    <div class="contact-details">
-      <p><strong>Email:</strong> <a href="mailto:Aba6631@psu.edu">Aba6631@psu.edu</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" target="_blank">View Profile</a></p>
-      <p><strong>Resume:</strong> <a href="resume.pdf" target="_blank">View PDF</a></p>
+      <img src="her.jpeg" alt="Aaliya Ahamed" class="intro-photo" />
     </div>
-  </section>
-  
-  <!-- CONTACT / FOOTER SECTION -->
-    <!-- END OF MAIN CONTENT -->
 
+    <div class="home-news">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li class="news-item">
+          <span class="news-date">Spring 2026</span>
+          <span class="news-text">Paper on reproductive profiles and epigenetic aging currently <strong>under review</strong>.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">2024–25</span>
+          <span class="news-text">Awarded the <strong>FEGR Top-Up Award</strong> by Penn State for excellence in graduate recruitment.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Jan 2024</span>
+          <span class="news-text">Selected for the <strong>India Connect Research Fellowship</strong> at NTU, Singapore.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Fall 2024</span>
+          <span class="news-text">Started PhD at Penn State's Department of Biobehavioral Health! 🎉</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">2021</span>
+          <span class="news-text">Won <strong>3rd place</strong> at the Hack4Rare Hackathon (MIT Hacking Medicine &amp; Children's Tumor Foundation).</span>
+        </li>
+      </ul>
+    </div>
 
-  
-  
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    }); 
-  </script>
-  <script>
-    window.addEventListener("load", function () {
-      document.querySelector(".highlighted-text").classList.add("animate-bg");
-    });
-  </script>
-  <!----
-  <script>
-    window.addEventListener("load", function () {
-      const highlight = document.querySelector(".highlighted-text");
-      highlight.classList.add("animated");
-    });
-  </script>-->
-  <script>
-    window.addEventListener("load", function () {
-      document.querySelectorAll(".highlighted-text").forEach(el => {
-        el.classList.add("animate-bg");
-      });
-    });
-  </script>
-  <script>
-    const faders = document.querySelectorAll('.fade-up');
-  
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // Trigger only once
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-  
-    faders.forEach(el => {
-      appearOnScroll.observe(el);
-    });
-  </script>
-    <footer class="custom-footer">
-        <div class="footer-bottom">
-          <p>&copy; 2025 Aaliya Ahamed</p>
-          <div class="footer-icons">
-            <a href="https://www.instagram.com/myphdslab/" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://twitter.com/yourprofile" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
+  </div>
+
+  <!-- ══ RESEARCH PAGE ══════════════════════════════════════════ -->
+  <div id="page-research" class="page">
+
+    <section style="padding-top: 3rem;">
+      <p style="margin-bottom:1.5rem; color:var(--ink-mid);">I have the same information below in two versions:<br>
+      <strong>TS;WM</strong> (Too Short; Want More) and <strong>TL;DR</strong> (Too Long; Didn't Read). Pick yours!</p>
+
+      <div class="version-toggle">
+        <button class="vtab active" onclick="switchVersion('tswm', this)">TS;WM</button>
+        <button class="vtab" onclick="switchVersion('tldr', this)">TL;DR</button>
+      </div>
+
+      <!-- TS;WM VERSION -->
+      <div id="vblock-tswm" class="vblock active">
+        <span class="tswm-label">— Full Version —</span>
+
+        <h2>Penn State (2024–Present)</h2>
+        <p>I'm currently a first-year PhD student in Biobehavioral Health at Penn State, working with <a href="https://shalev.la.psu.edu/" target="_blank">Dr. Idan Shalev</a>. My dissertation research investigates how early-life adversity — particularly childhood maltreatment — becomes biologically embedded through multiple stress pathways.</p>
+        <p style="margin-top:0.85em;">Specifically, I'm examining whether HPA-axis dysregulation and oxidative stress <em>mediate</em> the relationship between child maltreatment and telomere length. Telomeres are protective caps on our chromosomes; shorter telomeres are a marker of accelerated cellular aging. The idea that how you were treated as a child might literally shorten your cells is both scientifically fascinating and deeply important for understanding health disparities.</p>
+        <p style="margin-top:0.85em;">I'm also collaborating on a project examining reproductive profiles and epigenetic aging in post-menopausal women — asking whether hormonal history leaves a signature in the epigenome. This project is currently under review.</p>
+
+        <div class="fun-box">
+          <span class="fun-box-label">[Fun Stuff] — Research keywords I find myself using a lot</span>
+          <ul>
+            <li><strong>Epigenetic clocks</strong> — algorithmic estimates of biological age from DNA methylation patterns (PCPhenoAge, PCGrimAge, DunedinPACE)</li>
+            <li><strong>Telomere length (DNAmTL)</strong> — a hallmark of cellular senescence and stress exposure</li>
+            <li><strong>HPA-axis</strong> — the hypothalamic-pituitary-adrenal stress response system</li>
+            <li><strong>Oxidative stress</strong> — cellular damage from reactive oxygen species, a downstream consequence of chronic stress</li>
+          </ul>
+        </div>
+
+        <h2 style="margin-top:2rem;">NTU Singapore (Jan–Jun 2024)</h2>
+        <p>I was selected for the <strong>India Connect Fall Research Fellowship</strong> at Nanyang Technological University, Singapore — a competitive program that funds Indian students to conduct research in Singapore. My final-year project there involved molecular biology work that deepened my wet-lab skills and gave me a wonderful first experience working internationally.</p>
+        <p style="margin-top:0.85em;">Living in Singapore for six months was formative in ways that go beyond the science. I came back with a much sharper sense of what kind of researcher I want to be.</p>
+
+        <h2 style="margin-top:2rem;">University of Alabama at Birmingham (Summer 2023)</h2>
+        <p>I spent a summer at UAB exploring both computational and experimental approaches to understanding cellular stress responses. Working across methods — at the bench and at the computer — confirmed my belief that the best biology research requires both.</p>
+
+        <h2 style="margin-top:2rem;">University of Delhi (Summer 2022)</h2>
+        <p>My first formal research internship, in biological sciences, where I got my hands dirty with basic molecular mechanisms. I learned that research is mostly troubleshooting, and that troubleshooting is actually the interesting part.</p>
+
+        <h2 style="margin-top:2rem;">Publications</h2>
+        <ul class="pub-list">
+          <li class="pub-item">
+            <span class="pub-title">Identification of Novel Natural BACE1 Inhibitors for Alzheimer's Disease: An In Silico Approach <span class="pub-badge badge-pending">Pending</span></span>
+            <span class="pub-authors">Hazazi, N. A. Alshehri, M. Bakhuraysah, F. A. Alsaeedi, A. Alharthi, <strong>Ahamed A.</strong>, S. A. Abu Dahsh, M. Albayadh, F. Anjum</span>
+            <span class="pub-venue"><em>Advancements in Life Sciences</em>, 12(1)</span>
+          </li>
+          <li class="pub-item">
+            <span class="pub-title">Comprehensive Evaluation of Reproductive Profiles and Epigenetic Aging in Post-Menopausal Women <span class="pub-badge badge-review">Under Review</span></span>
+            <span class="pub-authors">Ye Q., <strong>Ahamed A.</strong>, Shalev I., Etzel L.</span>
+            <span class="pub-venue">Manuscript under review</span>
+          </li>
+          <li class="pub-item">
+            <span class="pub-title">Child Maltreatment and Telomere Length: Investigating Mediating Roles of HPA-Axis Dysregulation and Oxidative Stress <span class="pub-badge badge-prep">In Prep</span></span>
+            <span class="pub-authors"><strong>Ahamed A.</strong>, Shalev, I., House, L., &amp; Ye, Q.</span>
+            <span class="pub-venue">Manuscript in preparation</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- TL;DR VERSION -->
+      <div id="vblock-tldr" class="vblock">
+        <span class="tswm-label">— Short Version —</span>
+
+        <p>My <a href="https://scholar.google.com" target="_blank">Google Scholar profile</a> has the full list. Here's the quick summary:</p>
+
+        <p style="margin-top:1rem;">I'm a PhD student at Penn State (BBH) studying <strong>early-life adversity, stress biology, and biological aging</strong>. Specifically: does childhood trauma shorten your telomeres, and do stress hormones and oxidative damage explain why?</p>
+
+        <p style="margin-top:0.85em;">I've worked at <strong>NTU Singapore</strong>, <strong>UAB</strong>, and <strong>University of Delhi</strong>. I have one paper pending, one under review, and one in preparation.</p>
+
+        <div style="margin-top:1.5rem;">
+          <div class="research-item">
+            <img src="1716202075948.jpeg" alt="NTU" class="research-thumb" />
+            <div>
+              <p class="research-title">NTU Singapore — India Connect Fellowship</p>
+              <span class="research-tag">Jan–Jun 2024</span>
+            </div>
+          </div>
+          <div class="research-item">
+            <img src="alabama.jpeg" alt="UAB" class="research-thumb" />
+            <div>
+              <p class="research-title">University of Alabama at Birmingham</p>
+              <span class="research-tag">Summer 2023</span>
+            </div>
+          </div>
+          <div class="research-item">
+            <img src="du.jpeg" alt="Delhi" class="research-thumb" />
+            <div>
+              <p class="research-title">University of Delhi</p>
+              <span class="research-tag">Summer 2022</span>
+            </div>
           </div>
         </div>
-      </footer>
-      
-      
+
+        <div class="fun-box" style="margin-top:1.5rem;">
+          <span class="fun-box-label">[Fun Stuff] — Awards &amp; Honors</span>
+          <ul>
+            <li><strong>FEGR Top-Up Award</strong> — Penn State (2024–25)</li>
+            <li><strong>India Connect Research Fellowship</strong> — NTU Singapore (2024)</li>
+            <li><strong>3rd place</strong> — Hack4Rare Hackathon, MIT Hacking Medicine (2021)</li>
+            <li><strong>Dean's List</strong> — Shiv Nadar University (3 semesters, 2020–21)</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ══ MISC PAGE ══════════════════════════════════════════════ -->
+  <div id="page-misc" class="page">
+    <section style="padding-top: 3rem; border-bottom: none;">
+      <p style="color:var(--ink-mid); margin-bottom: 2rem;">A few things I love outside the lab.</p>
+
+      <div class="misc-section">
+        <h3>📚 Books</h3>
+        <p style="font-size:0.93rem; margin-bottom:1rem;">Some books that have shaped how I think — about science, life, and everything in between.</p>
+        <ul class="book-list">
+          <li class="book-item"><span class="book-title">The Body Keeps the Score</span><span class="book-author">Bessel van der Kolk</span></li>
+          <li class="book-item"><span class="book-title">Why Zebras Don't Get Ulcers</span><span class="book-author">Robert Sapolsky</span></li>
+          <li class="book-item"><span class="book-title">Behave</span><span class="book-author">Robert Sapolsky</span></li>
+          <li class="book-item"><span class="book-title">The Telomere Effect</span><span class="book-author">Blackburn &amp; Epel</span></li>
+          <li class="book-item"><span class="book-title">Educated</span><span class="book-author">Tara Westover</span></li>
+          <li class="book-item"><span class="book-title">Atomic Habits</span><span class="book-author">James Clear</span></li>
+        </ul>
+        <p style="font-size:0.85rem; color:var(--ink-xlight); margin-top:0.75rem;">Suggestions welcome — always looking for the next one!</p>
+      </div>
+
+      <div class="misc-section">
+        <h3>🎵 Music</h3>
+        <p style="font-size:0.93rem; margin-bottom:1rem;">My research playlists are very eclectic. Here's what's currently on rotation:</p>
+        <div class="music-grid">
+          <div class="music-card">
+            <div class="music-card-title">Hindustani Classical</div>
+            <div class="music-card-sub">For deep work sessions</div>
+          </div>
+          <div class="music-card">
+            <div class="music-card-title">Indie Folk</div>
+            <div class="music-card-sub">Writing and analysis</div>
+          </div>
+          <div class="music-card">
+            <div class="music-card-title">Lo-fi Hip Hop</div>
+            <div class="music-card-sub">Late-night coding</div>
+          </div>
+          <div class="music-card">
+            <div class="music-card-title">A.R. Rahman</div>
+            <div class="music-card-sub">Always, forever</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misc-section">
+        <h3>💡 Things I Believe</h3>
+        <ul style="font-size:0.93rem; color:var(--ink-mid);">
+          <li>The best science asks questions that matter to real people.</li>
+          <li>Confusion is the feeling of learning — lean into it.</li>
+          <li>Science communication is not optional; it's part of the job.</li>
+          <li>Rest is productive. Burnout is not a badge of honor.</li>
+          <li>Your background is an asset, not an obstacle.</li>
+        </ul>
+      </div>
+
+      <div class="misc-section">
+        <h3>🔗 Links I Like</h3>
+        <ul style="font-size:0.93rem;">
+          <li><a href="https://www.instagram.com/myphdslab/" target="_blank">PhD S'Lab</a> — my Instagram documenting PhD life</li>
+          <li><a href="https://bbh.psu.edu/" target="_blank">Department of Biobehavioral Health, Penn State</a></li>
+          <li><a href="https://shalev.la.psu.edu/" target="_blank">Shalev Lab</a> — where I do my research</li>
+        </ul>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ══ PHOTOGRAPHY PAGE ══════════════════════════════════════ -->
+  <div id="page-photography" class="page">
+    <section style="padding-top: 3rem; border-bottom: none;">
+      <p class="photo-note">I love taking photographs — mostly travel, nature, and everyday moments from PhD life. Follow <a href="https://www.instagram.com/myphdslab/" target="_blank">@myphdslab</a> on Instagram for the running feed. A few favorites below.</p>
+      <div class="photo-grid">
+        <img src="1716202075948.jpeg" alt="NTU Singapore" title="NTU Singapore, 2024" />
+        <img src="alabama.jpeg" alt="Alabama" title="UAB, Alabama" />
+        <img src="du.jpeg" alt="University of Delhi" title="University of Delhi" />
+        <div class="photo-placeholder">Add your photos here!</div>
+        <div class="photo-placeholder">Add your photos here!</div>
+        <div class="photo-placeholder">Add your photos here!</div>
+      </div>
+      <p style="font-size:0.85rem; color:var(--ink-xlight); margin-top:1.25rem; text-align:center;">More on <a href="https://www.instagram.com/myphdslab/" target="_blank">Instagram</a></p>
+    </section>
+  </div>
+
+  <!-- ══ CONTACT PAGE ══════════════════════════════════════════ -->
+  <div id="page-contact" class="page">
+    <section style="padding-top: 3rem; border-bottom: none;">
+      <p style="margin-bottom: 1.5rem;">I'd love to hear from potential collaborators, fellow researchers, or anyone curious about my work. Feel free to reach out!</p>
+      <div class="contact-row"><i class="fas fa-envelope"></i><a href="mailto:Aba6631@psu.edu">Aba6631@psu.edu</a></div>
+      <div class="contact-row"><i class="fab fa-linkedin"></i><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn Profile</a></div>
+      <div class="contact-row"><i class="fas fa-file-alt"></i><a href="aaliya.pdf" target="_blank">Download CV (PDF)</a></div>
+      <div class="contact-row"><i class="fas fa-graduation-cap"></i><a href="https://scholar.google.com" target="_blank">Google Scholar</a></div>
+      <div class="contact-row"><i class="fas fa-map-marker-alt"></i><span>Department of Biobehavioral Health, Penn State University, University Park, PA 16802</span></div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <span class="footer-copy">&copy; 2025 Aaliya Ahamed</span>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/myphdslab/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="mailto:Aba6631@psu.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  function switchVersion(id, btn) {
+    document.querySelectorAll('.vblock').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.vtab').forEach(b => b.classList.remove('active'));
+    document.getElementById('vblock-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
 </body>
 </html>
-
-  
